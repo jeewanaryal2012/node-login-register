@@ -13,10 +13,14 @@ var app = express();
 app.set('port', 9000);
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', [
+    path.join(__dirname, 'views'), path.join(__dirname, 'views/common')
+]);
 
 // set morgan to log info about our requests for development use.
 app.use(morgan('dev'));
+
+app.use(express.static(path.join(__dirname, 'assets')));
 
 // initialize body-parser to parse incoming parameters requests to req.body
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -86,7 +90,9 @@ app.route('/signup')
 // route for user Login
 app.route('/login')
     .get(sessionChecker, (req, res) => {
-        res.render(__dirname + '/views/login');
+        res.render(__dirname + '/views/login', {
+            member: false
+        });
     })
     .post((req, res) => {
         var username = req.body.username,
@@ -108,7 +114,10 @@ app.route('/login')
 // route for user's dashboard
 app.get('/dashboard', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
-        res.render(__dirname + '/views/dashboard');
+        res.render(__dirname + '/views/dashboard', {
+            member: true,
+            firstName: "Jeewan"
+        });
     } else {
         res.redirect('/login');
     }
