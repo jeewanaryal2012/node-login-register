@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack -p",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,9 @@
     "path": "^0.12.7",
     "pg": "^7.4.1",
     "sequelize": "^4.33.3"
+  },
+  "devDependencies": {
+    "glob": "^7.1.2",
+    "webpack": "^3.11.0"
   }
 }
