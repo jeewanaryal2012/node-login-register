@@ -21,6 +21,7 @@ app.set('views', [
 app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, 'assets')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // initialize body-parser to parse incoming parameters requests to req.body
 app.use(bodyParser.urlencoded({ extended: true }));
