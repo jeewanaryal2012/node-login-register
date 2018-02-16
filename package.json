@@ -30,7 +30,8 @@
     "mysql2": "^1.5.2",
     "path": "^0.12.7",
     "pg": "^7.4.1",
-    "sequelize": "^4.33.3"
+    "sequelize": "^4.33.3",
+    "vue": "^2.5.13"
   },
   "devDependencies": {
     "glob": "^7.1.2",

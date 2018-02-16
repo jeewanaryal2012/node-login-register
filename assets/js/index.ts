@@ -1,3 +1,7 @@
+
+import { Nav } from "./nav";
+
+
 class Student {
     fullName: string;
     constructor(public firstName: string, public middleInitial: string, public lastName: string) {
@@ -17,4 +21,4 @@ function greeter(person : Person) {
 let user = new Student("Jane", "M.", "User");
 
 //document.body.innerHTML = greeter(user);
-console.log(greeter(user));
+console.log(Nav);

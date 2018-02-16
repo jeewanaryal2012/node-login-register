@@ -1,22 +1,42 @@
-<nav class="navbar navbar-default">
+
+<nav id="nav" class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
-                <% if(member==false){ %>
-                    <li><a href="/signup">Sign Up</a></li>
-                <% } %>
                 <% if(member==true){ %>
                     <li><a href="/dashboard">Dashboard</a></li>
                 <% } %>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
+                    <!-- <a href="#demo" class="btn btn-info" data-toggle="collapse">Simple collapsible</a>
+                    <div id="demo" class="collapse">
+                        show it
+                    </div> -->
+
+                <% if(member==false){ %>
+                    <li><a href="/signup">Sign Up</a></li>
+                <% } %>
                 <% if(member==true){ %>
-                    <li><a href="/logout">Log out</a></li>
+                    <li>
+                        <a 
+                            href="#user-name-dropdown"
+                            data-toggle="collapse"
+                            @click="test()"
+                        >
+                            <%= firstName %>
+                        </a>
+                        <div id="user-name-dropdown" class="collapse">
+                            <a href="/logout">Log out</a>
+                        </div>
+                    </li>
+                    <!-- <li>
+                        <a href="#demo" class="btn btn-info" data-toggle="collapse"><%= firstName %></a>
+                        <a id="demo" class="collapse" href="/logout">Log out</a>
+                    </li> -->
                 <% } else{ %>
-               
                     <li><a href="/login">Log in</a></li>
                 <% } %>
             </ul>
