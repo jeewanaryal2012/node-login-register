@@ -70,7 +70,9 @@ app.get('/', sessionChecker, (req, res) => {
 // route for user signup
 app.route('/signup')
     .get(sessionChecker, (req, res) => {
-        res.render(__dirname + '/views/signup');
+        res.render(__dirname + '/views/signup', {
+            member: false
+        });
     })
     .post((req, res) => {
         User.create({
@@ -115,10 +117,14 @@ app.route('/login')
 // route for user's dashboard
 app.get('/dashboard', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
-        res.render(__dirname + '/views/dashboard', {
-            member: true,
-            firstName: "Jeewan"
-        });
+        User.findAll().then(user => {
+            console.log(req.session.user.username);
+            //console.log(user);
+            res.render(__dirname + '/views/dashboard', {
+                member: true,
+                firstName: req.session.user.username
+            });
+        })
     } else {
         res.redirect('/login');
     }
