@@ -23,13 +23,13 @@
                     <li>
                         <a 
                             href="#user-name-dropdown"
-                            data-toggle="collapse"
-                            @click="test()"
+                            
+                            @click="toggleMenu()"
                         >
-                            <%= firstName %>
+                            <%= firstName %> <i :class="showMenu ? 'fa fa-caret-up' : 'fa fa-caret-down'"></i>
                         </a>
-                        <div id="user-name-dropdown" class="collapse">
-                            <a href="/logout">Log out</a>
+                        <div id="user-name-dropdown" v-if="showMenu">
+                            <a href="/logout">Log out <i class="fa fa-power-off"></i></a>
                         </div>
                     </li>
                     <!-- <li>

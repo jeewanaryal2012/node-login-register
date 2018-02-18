@@ -1,17 +1,15 @@
 
-
-
-  var Nav = new Vue({
-    el: '#nav',
-    data: {
-      testMessage: 'Hello Vue!'
-    },
-    methods: {
-      test: function() {
-        console.log("test call");
-      }
+var Nav = new Vue({
+  el: '#nav',
+  data: {
+    showMenu: false
+  },
+  methods: {
+    toggleMenu: function() {
+      this.showMenu = !this.showMenu;
     }
-  });
+  }
+});
 
 
 export { Nav };
