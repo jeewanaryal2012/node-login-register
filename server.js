@@ -131,6 +131,34 @@ app.get('/dashboard', (req, res) => {
     }
 });
 
+// route for user's dashboard
+app.get('/contact', (req, res) => {
+    if (req.session.user && req.cookies.user_sid) {
+        User.findAll().then(user => {
+            res.render(__dirname + '/views/contact', {
+                member: true,
+                firstName: req.session.user.username
+            });
+        })
+    } else {
+        res.redirect('/login');
+    }
+});
+
+app.post('/contact', (req, res) => {
+    res.render('contact', {
+        data: req.body, // { message, email }
+        errors: {
+        message: {
+            msg: 'A message is required'
+        },
+        email: {
+            msg: 'That email doesn‘t look right'
+        }
+        }
+    })
+});
+
 
 // route for user logout
 app.get('/logout', (req, res) => {
