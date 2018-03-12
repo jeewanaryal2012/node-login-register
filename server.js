@@ -145,6 +145,7 @@ app.get('/contact', (req, res) => {
     }
 });
 
+
 app.post('/contact', (req, res) => {
     res.render('contact', {
         data: req.body, // { message, email }
