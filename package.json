@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/jeewanaryal2012/node-login-register#readme",
   "dependencies": {
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.7",
